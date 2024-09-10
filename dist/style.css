@@ -171,7 +171,16 @@ a:active {
   background-color: var(--hero-bg);
   color: var(--text-light);
 }
+.hero__wrapper {
+  padding-block: 30px 60px;
+}
+@media (min-width: 56.25em) {
+  .hero__wrapper {
+    padding-block: 40px 80px;
+  }
+}
 .hero__image {
   max-width: 30.1875rem;
   width: 62%;
+  margin-block-end: 2.5rem;
 }/*# sourceMappingURL=style.css.map */
