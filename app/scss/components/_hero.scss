@@ -1,0 +1,22 @@
+@use '../util' as u;
+
+.hero {
+    background-color: var(--hero-bg);
+    color: var(--text-light);
+
+    &__wrapper {}
+
+    &__image {
+        max-width: 30.1875rem;
+        width: 62%;
+    }
+
+    &__text {}
+
+    &__title {}
+
+    &__content {}
+
+    &__button {}
+
+}
