@@ -25,6 +25,9 @@
 
     &__content {}
 
-    &__button {}
-
+    &__button {
+        &:first-of-type {
+            margin-inline-end: 20px;
+        }
+    }
 }
