@@ -5,9 +5,21 @@
     color: var(--text-light);
 
     &__wrapper {
+        // display: flex;
+        // flex-direction: column;
+        // align-items: center;
+        display: grid;
+        justify-items: center;
+        align-items: center;
+        grid-template-columns: 1fr;
+        gap: 40px;
         padding-block: 30px 60px;
 
         @include u.breakpoint(large) {
+            // flex-direction: row-reverse;
+            grid-template-columns: 6fr 5fr;
+
+            gap: 10%;
             padding-block: 40px 80px;
         }
     }
@@ -16,14 +28,18 @@
         max-width: 30.1875rem;
         width: 62%;
 
-        margin-block-end: 2.5rem;
+        @include u.breakpoint(large) {
+            // flex: 5;
+            width: 100%;
+            order: 2;
+        }
     }
 
-    &__text {}
-
-    &__title {}
-
-    &__content {}
+    &__text {
+        @include u.breakpoint(large) {
+            // flex: 6;
+        }
+    }
 
     &__button {
         &:first-of-type {
