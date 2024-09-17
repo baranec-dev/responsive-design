@@ -1,4 +1,11 @@
+@use '../util' as u;
+
 .wrapper {
     width: min(100% - 3rem, 75rem);
     margin-inline: auto;
+    padding-block: 60px;
+
+    @include u.breakpoint(large) {
+        padding-block: 80px;
+    }
 }
