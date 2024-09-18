@@ -1,0 +1,19 @@
+.fw-feature {
+    background-color: var(--fullwidth-bg);
+    color: var(--text-light);
+
+    &__wrapper {
+        text-align: center;
+    }
+
+    &__description {
+        max-width: 70ch;
+        margin-inline: auto;
+        margin-block-end: 2.5rem;
+    }
+
+    &__image {
+        max-width: 49.5rem;
+        margin-inline: auto;
+    }
+}

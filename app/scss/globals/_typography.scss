@@ -17,6 +17,8 @@ h1 {
 h2 {
     font-size: 2.25rem;
     font-size: clamp(2.25rem, 1.91rem + 1.45vw, 3rem);
+    line-height: 1.1;
+    margin-block-end: 1.25rem;
 }
 
 h3 {
