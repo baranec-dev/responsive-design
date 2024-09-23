@@ -22,6 +22,16 @@
             background-color: var(--button-primary-bg-hover);
             border: .125rem solid var(--button-primary-bg-hover);
         }
+
+        &.white {
+            background-color: var(--button-primary-white-bg);
+            border: .125rem solid var(--button-primary-white-bg);
+
+            &:hover {
+                background-color: var(--button-primary-white-bg-hover);
+                border: .125rem solid var(--button-primary-white-bg-hover);
+            }
+        }
     }
 
     &.secondary {
