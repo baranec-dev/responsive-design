@@ -24,6 +24,20 @@ h2 {
 h3 {
     line-height: 1;
     font-size: 1.5rem;
+    margin-block-end: .625rem;
+
+    &.large {
+        font-size: 2.25rem;
+        font-size: clamp(2.25rem, 2.02rem + 0.97vw, 2.75rem);
+
+        span {
+            display: block;
+            font-size: 1.25rem;
+            font-size: clamp(1.25rem, 1.14rem + 0.48vw, 1.5rem);
+            text-transform: uppercase;
+            margin-block-end: .625rem;
+        }
+    }
 }
 
 p {
@@ -47,4 +61,8 @@ a,
 a:visited,
 a:active {
     text-decoration: none;
+}
+
+a {
+    color: var(--text-link);
 }
