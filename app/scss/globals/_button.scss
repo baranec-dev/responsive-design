@@ -12,6 +12,7 @@
     transition-property: background-color, border, color;
     transition-duration: 0.2s;
     transition-timing-function: ease-in-out;
+    cursor: pointer;
 
     &.primary {
         background-color: var(--button-primary-bg);

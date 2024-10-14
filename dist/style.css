@@ -17,6 +17,11 @@ body {
   color: var(--text-dark);
 }
 
+input,
+button {
+  font-family: inherit;
+}
+
 img {
   display: block;
   width: 100%;
@@ -159,6 +164,7 @@ a {
   transition-property: background-color, border, color;
   transition-duration: 0.2s;
   transition-timing-function: ease-in-out;
+  cursor: pointer;
 }
 .button.primary {
   background-color: var(--button-primary-bg);
@@ -196,6 +202,19 @@ a {
   max-width: 70ch;
   margin-inline: auto;
   margin-block-end: 2.5rem;
+}
+
+.form__label, .form__text {
+  font-size: 1.125rem;
+  line-height: 1;
+}
+.form__label {
+  font-weight: 700;
+}
+.form__text {
+  padding: 0.5rem 1.25rem;
+  border: none;
+  border-radius: 5px;
 }
 
 .wrapper {
@@ -468,6 +487,41 @@ a {
   .fw-cta {
     background: linear-gradient(90deg, var(--gradient1) 0%, var(--gradient2) 55%, var(--gradient3) 110%);
   }
+}
+.fw-cta__form {
+  display: grid;
+  grid-template-areas: "label" "text" "button";
+  max-width: 21.875rem;
+  margin-inline: auto;
+}
+@media (min-width: 43.75em) {
+  .fw-cta__form {
+    grid-template-areas: "label label" "text button";
+    justify-content: center;
+  }
+}
+.fw-cta__label {
+  grid-area: label;
+  justify-self: start;
+  margin-block-end: 12px;
+}
+.fw-cta__text {
+  grid-area: text;
+}
+@media (max-width: 43.7488em) {
+  .fw-cta__text {
+    margin-block-end: 20px;
+  }
+}
+@media (min-width: 43.75em) {
+  .fw-cta__text {
+    margin-inline-end: 20px;
+    width: 18.75rem;
+  }
+}
+.fw-cta__button {
+  grid-area: button;
+  justify-self: center;
 }
 
 .footer__wrapper {
