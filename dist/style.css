@@ -133,6 +133,8 @@ a {
   --text-light: hsl(0, 0%, 100%);
   --text-link: hsl(320, 85%, 41%);
   --header-bg: hsl(232, 58%, 55%);
+  --menu-shadow: hsla(232, 58%, 35%, 60%);
+  --menu-overlay: hsla(233, 14%, 25%, 40%);
   --link-gradient1: hsl(180, 100%, 42%);
   --link-gradient2: hsl(50, 99%, 53%);
   --hero-bg: hsl(232, 58%, 55%);
@@ -243,7 +245,7 @@ a {
   grid-column: content-start/content-end;
 }
 
-.topnav {
+.topnav, .topnav__menu {
   background-color: var(--header-bg);
 }
 .topnav__wrapper {
@@ -265,27 +267,74 @@ a {
     width: 8rem;
   }
 }
+@media (max-width: 43.7488em) {
+  .topnav__overlay {
+    position: fixed;
+    inset: 0;
+    background-color: var(--menu-overlay);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 400ms ease-in-out;
+  }
+  .topnav__overlay:has(+ .topnav__open[aria-expanded=true]) {
+    opacity: 1;
+    pointer-events: all;
+  }
+}
+.topnav__open, .topnav__close {
+  background: none;
+  padding: 0;
+  border: 0;
+}
+.topnav__open {
+  display: none;
+}
+.topnav__open[aria-expanded=true] + .topnav__menu {
+  translate: 0 0;
+}
+@media (max-width: 43.7488em) {
+  .topnav__menu {
+    position: fixed;
+    inset: 0 0 auto 0;
+    padding: 12px 24px 120px;
+    border-radius: 0 0 20px 20px;
+    box-shadow: 0 12px 12px var(--menu-shadow);
+    translate: 0 -106%;
+    transition: translate 400ms ease-in-out;
+  }
+}
+.topnav__close {
+  display: none;
+}
+@media (max-width: 43.7488em) {
+  .topnav__close {
+    display: block;
+    margin-inline-start: auto;
+    margin-block-end: 84px;
+  }
+}
 .topnav__links {
   display: flex;
-  gap: 20px;
+  gap: 40px;
 }
-@media (min-width: 56.25em) {
+@media (max-width: 43.7488em) {
   .topnav__links {
-    gap: 40px;
+    flex-direction: column;
+    align-items: center;
   }
 }
 .topnav__link {
   display: block;
-  font-size: 0.875rem;
+  font-size: 1.25rem;
   line-height: 1;
   font-weight: 700;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
   color: var(--text-light);
 }
-@media (min-width: 56.25em) {
+@media (min-width: 43.75em) {
   .topnav__link {
     font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
   }
 }
 .topnav__link::after {
@@ -296,6 +345,11 @@ a {
   background: linear-gradient(to right, var(--link-gradient1), var(--link-gradient2) 75%);
   opacity: 0;
   transition: opacity 250ms ease-in-out;
+}
+@media (max-width: 43.7488em) {
+  .topnav__link::after {
+    display: none;
+  }
 }
 .topnav__link:hover::after {
   opacity: 1;
