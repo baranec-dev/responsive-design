@@ -1,6 +1,9 @@
 @use '../util' as u;
 
 .topnav {
+    position: sticky;
+    top: 0;
+    z-index: 10;
 
     &,
     &__menu {
@@ -33,7 +36,7 @@
             background-color: var(--menu-overlay);
             opacity: 0;
             pointer-events: none;
-            transition: opacity 400ms ease-in-out;
+            transition: opacity ease-in-out;
 
             &:has(+ .topnav__open[aria-expanded='true']) {
                 opacity: 1;
@@ -50,10 +53,16 @@
     }
 
     &__open {
-        display: none;
+        @include u.breakpoint(medium) {
+            display: none;
+        }
 
         &[aria-expanded='true']+.topnav__menu {
             translate: 0 0;
+
+            @media (prefers-reduced-motion) {
+                opacity: 1;
+            }
         }
     }
 
@@ -65,7 +74,13 @@
             border-radius: 0 0 20px 20px;
             box-shadow: 0 12px 12px var(--menu-shadow);
             translate: 0 -106%;
-            transition: translate 400ms ease-in-out;
+            transition: translate ease-in-out;
+
+            @media (prefers-reduced-motion) {
+                translate: 0;
+                opacity: 0;
+                transition-property: opacity;
+            }
         }
     }
 
@@ -89,6 +104,12 @@
         }
     }
 
+    &__item:first-child {
+        @include u.breakpoint(medium) {
+            display: none;
+        }
+    }
+
     &__link {
         display: block;
         font-size: 1.25rem;
@@ -107,7 +128,9 @@
             display: block;
             height: 3px;
             margin-top: 3px;
-            background: linear-gradient(to right, var(--link-gradient1), var(--link-gradient2) 75%);
+            background: linear-gradient(to right,
+                    var(--link-gradient1),
+                    var(--link-gradient2) 80%);
             opacity: 0;
             transition: opacity 250ms ease-in-out;
 
@@ -120,5 +143,4 @@
             opacity: 1;
         }
     }
-
 }
